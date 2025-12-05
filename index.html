@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FdLnStore TempMail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-shield-cat"></i> 
+                <span>FdLnStore TempMail</span>
+            </div>
+            <p>Layanan email sementara @fdlnstore.web.id</p>
+        </header>
+
+        <div class="card email-control">
+            <label>Buat Nama Email Sendiri:</label>
+            <div class="input-group">
+                <input type="text" id="usernameInput" placeholder="Enter Username" />
+                <span class="domain-tag">@fdlnstore.web.id</span>
+            </div>
+            
+            <div class="action-buttons">
+                <button onclick="openCustomEmail()" class="btn-primary">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Buka
+                </button>
+                
+                <button onclick="generateRandom()" class="btn-warning">
+                     <i class="fa-solid fa-dice"></i> Acak
+                </button>
+                
+                <button onclick="copyEmailAddress()" class="btn-success">
+                    <i class="fa-regular fa-copy"></i> Salin Email
+                </button>
+
+                <button onclick="copyFullUrl()" class="btn-secondary" title="Salin Link Halaman Ini">
+                    <i class="fa-solid fa-link"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card inbox-area">
+            <div class="inbox-header">
+                <h2 id="inboxTitle">Inbox</h2>
+                
+                <div class="refresh-wrapper">
+                    <span id="timerText">Auto-refresh: 10s</span>
+                    <button onclick="checkInbox()" class="btn-sm">
+                        <i class="fa-solid fa-rotate-right"></i> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <div id="emailList" class="email-list">
+                <div class="empty-state"><p>Masukkan nama email di atas untuk mulai.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalSubject" class="modal-title">Subject</h2>
+            <div class="modal-meta">
+                <p><strong>Dari:</strong> <span id="modalFrom">...</span></p>
+                <p><strong>Tanggal:</strong> <span id="modalDate">...</span></p>
+            </div>
+            <hr>
+            <div id="modalBody" class="modal-body-text"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
